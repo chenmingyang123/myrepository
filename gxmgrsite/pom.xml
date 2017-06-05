@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.guangxunet.shop</groupId>
+    <artifactId>gxparent</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../gxparent/pom.xml</relativePath>
+  </parent>
+  <artifactId>gxmgrsite</artifactId>
+  <packaging>war</packaging>
+  <name>gxmgrsite</name>
+  
+  <dependencies>
+        <!--依赖gxcore项目，application-mvc.xml文件才能关联applicationContext.xml-->
+        <dependency>
+            <groupId>com.guangxunet.shop</groupId>
+            <artifactId>gxcore</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!--spring-mvc依赖的包在gxparent项目中统一管理版本，这里不用写版本号version-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <!--json-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <!--freemaker代码生成器-->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>gxmgrsite</finalName>
+    </build>
+</project>
