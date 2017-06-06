@@ -39,9 +39,9 @@
 			<mvc:mapping path="/*"/>
 			<bean class="com.guangxunet.shop.web.introceptor.LoginCheckInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors> -->   
 
-	<!--freemarker视图解析器-->
+	<!--freemarker视图解析器dvvd-->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true"/><!--是否使用缓存-->
 		<property name="suffix" value=".ftl"/><!--视图后缀-->
