@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guangxunet.shop.base.mapper.LogininfoMapper" >
+  <resultMap id="BaseResultMap" type="com.guangxunet.shop.base.domain.Logininfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="usertype" property="userType" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from logininfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.guangxunet.shop.base.domain.Logininfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into logininfo (state, username, password,usertype)
+    values (#{state,jdbcType=TINYINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},#{userType,jdbcType=TINYINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.guangxunet.shop.base.domain.Logininfo" >
+    update logininfo
+    set state = #{state,jdbcType=TINYINT},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+      usertype = #{userType,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, state, username, password,usertype
+    from logininfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, state, username, password,usertype
+    from logininfo
+  </select>
+
+  <select id="login" resultMap="BaseResultMap">
+    select id, state, username, password,usertype
+    from logininfo
+    WHERE username = #{username} AND password = #{password} AND usertype = #{usertype}
+  </select>
+
+  <select id="countByUserType" resultType="int">
+    select count(*)
+    from logininfo
+    WHERE usertype = #{userType}
+  </select>
+
+  <select id="countUserByName" resultType="int">
+    select count(*)
+    from logininfo
+    WHERE username = #{username}
+  </select>
+
+  <select id="autoComplate" resultType="hashmap" useCache="false">
+    select id,username
+    from logininfo where username LIKE concat(#{word},'%') AND usertype = #{userType}
+  </select>
+
+</mapper>
