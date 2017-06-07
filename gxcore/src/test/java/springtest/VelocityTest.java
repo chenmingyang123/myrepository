@@ -27,6 +27,10 @@ public class VelocityTest {
     	System.out.println("====end===============");
 	}
     
+    /**
+     * 使用德鲁伊生成加密字符串
+     * @throws Exception
+     */
     @Test
     public void testXxx() throws Exception {
         String admin = ConfigTools.encrypt("admin");

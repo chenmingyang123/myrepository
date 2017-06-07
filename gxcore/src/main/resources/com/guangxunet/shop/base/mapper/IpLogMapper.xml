@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guangxunet.shop.base.mapper.IpLogMapper" >
+  <resultMap id="BaseResultMap" type="com.guangxunet.shop.base.domain.Iplog" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="loginstate" property="loginState" jdbcType="TINYINT" />
+    <result column="username" property="userName" jdbcType="VARCHAR" />
+    <result column="logintime" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="usertype" property="userType" jdbcType="TINYINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.guangxunet.shop.base.domain.Iplog" useGeneratedKeys="true" keyProperty="id" >
+    insert into iplog (ip,loginstate,username, logintime,usertype)
+    values (#{ip}, #{loginState}, #{userName},#{loginTime},#{userType})
+  </insert>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, ip,loginstate, username, logintime,usertype
+    from iplog
+    where id = #{id}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, ip,loginstate, username, logintime,usertype
+    from iplog
+  </select>
+
+</mapper>

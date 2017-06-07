@@ -7,35 +7,40 @@
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="usertype" property="userType" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from logininfo
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.guangxunet.shop.base.domain.Logininfo" useGeneratedKeys="true" keyProperty="id" >
-    insert into logininfo (state, username, password,usertype)
-    values (#{state,jdbcType=TINYINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},#{userType,jdbcType=TINYINT})
+    insert into logininfo (state, username, password,usertype,mobile,email)
+    values (#{state,jdbcType=TINYINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{userType,jdbcType=TINYINT},#{mobile},#{email})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.guangxunet.shop.base.domain.Logininfo" >
     update logininfo
     set state = #{state,jdbcType=TINYINT},
       username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-      usertype = #{userType,jdbcType=TINYINT}
+      password = #{password,jdbcType=VARCHAR},
+      usertype = #{userType,jdbcType=TINYINT},
+      mobile = #{mobile,jdbcType=TINYINT},
+      email = #{email,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select id, state, username, password,usertype
+    select id, state, username, password,usertype,mobile,email
     from logininfo
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select id, state, username, password,usertype
+    select id, state, username, password,usertype,mobile,email
     from logininfo
   </select>
 
   <select id="login" resultMap="BaseResultMap">
-    select id, state, username, password,usertype
+    select id, state, username, password,usertype,mobile,email
     from logininfo
     WHERE username = #{username} AND password = #{password} AND usertype = #{usertype}
   </select>
@@ -50,6 +55,12 @@
     select count(*)
     from logininfo
     WHERE username = #{username}
+  </select>
+  
+  <select id="countUserByMobile" resultType="int">
+    select count(*)
+    from logininfo
+    WHERE mobile = #{mobile}
   </select>
 
   <select id="autoComplate" resultType="hashmap" useCache="false">

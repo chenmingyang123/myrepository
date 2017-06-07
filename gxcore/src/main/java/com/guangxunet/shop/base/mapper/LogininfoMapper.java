@@ -17,6 +17,8 @@ public interface LogininfoMapper {
     int updateByPrimaryKey(Logininfo record);
 
     int countUserByName(String username);
+    
+    int countUserByMobile(String mobile);
 
     Logininfo login(@Param("username") String username, @Param("password") String password,@Param("usertype")int usertype);
 
