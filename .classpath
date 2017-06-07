@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="gxcore/src/main/java"/>
+	<classpathentry kind="src" path="gxcore/src/test/java"/>
+	<classpathentry kind="src" path="gxmgrsite/src/main/java"/>
+	<classpathentry kind="src" path="gxwebsite/src/main/java"/>
+	<classpathentry kind="src" path="gxwebsite/src/test/java"/>
+	<classpathentry kind="lib" path="gxcore/target/gxcore-1.0.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="gxcore/target/classes"/>
+</classpath>
