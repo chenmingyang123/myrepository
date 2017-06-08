@@ -28,7 +28,7 @@ public class LoginTest {
 	 */
 	@Test
 	public void testRegister() throws Exception {
-		iLogininfoService.register("18211674996", "123");
+		iLogininfoService.register("18211674997", "1234");
 		System.out.println("===注册成功success===");
 	}
 	

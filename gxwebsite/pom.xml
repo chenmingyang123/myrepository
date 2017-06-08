@@ -60,6 +60,8 @@
 		         </configuration> 
 		     </plugin>
    		</plugins>
-    <finalName>gxwebsite</finalName>
+    <finalName>
+    	gxwebsite
+   	</finalName>
     </build>
 </project>
