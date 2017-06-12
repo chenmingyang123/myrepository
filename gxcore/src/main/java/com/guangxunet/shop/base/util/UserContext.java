@@ -6,6 +6,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.guangxunet.shop.base.domain.Logininfo;
+import com.guangxunet.shop.base.vo.VerifyCodeVO;
 
 /** 
 * @author 作者 E-mail: King
@@ -14,6 +15,7 @@ import com.guangxunet.shop.base.domain.Logininfo;
 */
 public class UserContext {
 	public static final String LOGININFO_IN_SESSION  = "logininfo";
+	public static final String VERIFYCODE_IN_SESSION = "VERIFYCODE_IN_SESSION";
 	
 	public static HttpSession getSession(){
 		return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getSession();
@@ -23,5 +25,15 @@ public class UserContext {
 		getSession().setAttribute(LOGININFO_IN_SESSION,loginInfo);
 	}
 	
+	public static Logininfo getCurrent(){
+        return (Logininfo) getSession().getAttribute(LOGININFO_IN_SESSION);
+    }
 	
+	public static VerifyCodeVO getVerifyCode() {
+        return (VerifyCodeVO) getSession().getAttribute(VERIFYCODE_IN_SESSION);
+    }
+	
+	public static void putVerifyCode(VerifyCodeVO codeVO){
+        getSession().setAttribute(VERIFYCODE_IN_SESSION,codeVO);
+    }
 }

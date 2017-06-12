@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guangxunet.shop.base.mapper.BannerMapper" >
+  <resultMap id="BaseResultMap" type="com.guangxunet.shop.base.domain.Banner" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="image_path" property="imagePath" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="ad_url" property="adUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from banner
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guangxunet.shop.base.domain.Banner" useGeneratedKeys="true" keyProperty="id" >
+    insert into banner (image_path, type, ad_url
+      )
+    values (#{imagePath,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{adUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.guangxunet.shop.base.domain.Banner" >
+    update banner
+    set image_path = #{imagePath,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      ad_url = #{adUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, image_path, type, ad_url
+    from banner
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, image_path, type, ad_url
+    from banner
+  </select>
+</mapper>

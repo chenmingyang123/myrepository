@@ -11,4 +11,9 @@ public class BidConst {
      */
     public static final String DEFAULT_ADMIN_NAME = "admin";
     public static final String DEFAULT_ADMIN_PASSWORD = "1111";
+    
+    /**
+     * 发送手机验证码的间隔时间
+     */
+    public static final long SEND_VERIFY_INTERVAL = 5;
 }

@@ -28,13 +28,13 @@ public class LoginTest {
 	 */
 	@Test
 	public void testRegister() throws Exception {
-		iLogininfoService.register("18211674997", "1234");
-		System.out.println("===注册成功success===");
+		/*iLogininfoService.register("18211674997", "1234");
+		System.out.println("===注册成功success===");*/
 	}
 	
 	@Test
 	public void testLogin() throws Exception {
-		Logininfo login = iLogininfoService.login("admin", "admin", "121.121.121", Logininfo.USER_NORMAL);
-		System.out.println(login);
+		/*Logininfo login = iLogininfoService.login("admin", "admin", "121.121.121", Logininfo.USER_NORMAL);
+		System.out.println(login);*/
 	}
 }

@@ -16,15 +16,15 @@ import lombok.ToString;
 @NoArgsConstructor
 public class JsonResult {
 	private Boolean success=false;
-    private String msg;
+    private String message;
     
     public JsonResult(Boolean success, String msg){
         this.success = success;
-        this.msg = msg;
+        this.message = msg;
     }
     
     //如果使用一个参数的构造器，那么success默认值为false
     public JsonResult(String msg){
-        this.msg = msg;
+        this.message = msg;
     }
 }
